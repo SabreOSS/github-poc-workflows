@@ -19,7 +19,7 @@ jobs:
       - name: Setup SA performing deployment
         uses: ./.github/workflows/setup_gke_sa-sample.yml@setup-sa
         with: 
-          gke-cluster: inputs.gke-cluster
+          gke-cluster: ${{ inputs.gke-cluster }}
 
       - name: Get deployment strategy
         run: echo Download deployment strategy
