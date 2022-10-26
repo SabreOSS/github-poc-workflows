@@ -1,0 +1,19 @@
+name: Deploy GKE
+
+on:
+  # This is reusable workflow - providing full GKE deploy
+  workflow_call:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+          
+    steps:
+      - name: Get deployment strategy
+        run: echo Download deployment strategy
+
+      - name: Run deployment
+        run: echo Run strategy - whatever that is
+
+      - name: Run other actions
+        run: echo ...
