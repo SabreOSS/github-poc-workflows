@@ -9,21 +9,16 @@ on:
         required: true
         type: string
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "deploy"
   setup:
     uses: ./.github/workflows/setup_gke_sa-sample.yml
     with: 
       gke-cluster: ${{ inputs.gke-cluster }}
       
   deploy:
-    # Later on this can be done in self-hosted runner
     runs-on: ubuntu-latest
           
     steps:
-      - name: Run workflow executing SA setup
-
       - name: Get deployment strategy
         run: echo Download deployment strategy
 
