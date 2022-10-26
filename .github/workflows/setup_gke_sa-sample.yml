@@ -8,7 +8,7 @@ on:
         type: string
 
 jobs:
-  deploy:
+  setup-sa:
     runs-on: ubuntu-latest
 
     steps:
