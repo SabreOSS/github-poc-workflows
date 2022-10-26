@@ -1,4 +1,4 @@
-name: Deploy GKE
+name: Full GKE deploy workflow
 
 on:
   workflow_dispatch:
@@ -21,17 +21,7 @@ jobs:
       
   deploy:
     needs: setup
-    runs-on: ubuntu-latest
-          
-    steps:
-      - name: Get deployment strategy
-        run: echo Download deployment strategy
-
-      - name: Run deployment
-        run: echo Run strategy - whatever that is
-
-      - name: Run other actions
-        run: echo ...
+    uses: ./.github/workflows/deploy_gke-sample.yml
         
   finalize:
     needs: deploy
