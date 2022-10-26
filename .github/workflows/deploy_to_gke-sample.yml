@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Setup SA performing deployment
+      - name: Run workflow executing SA setup
         uses: ./.github/workflows/setup_gke_sa-sample.yml@setup-sa
         with: 
           gke-cluster: ${{ inputs.gke-cluster }}
@@ -31,5 +31,5 @@ jobs:
       - name: Run other actions
         run: echo ...
 
-      - name: Finalize
+      - name: Run worflow executing finalization
         uses: ./.github/workflows/finalize_deployment-sample.yml@finalize
