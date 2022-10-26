@@ -1,6 +1,7 @@
 name: Deploy GKE
 
 on:
+  workflow_dispatch:
   # This is reusable workflow - providing full GKE deploy
   workflow_call:
     inputs:
