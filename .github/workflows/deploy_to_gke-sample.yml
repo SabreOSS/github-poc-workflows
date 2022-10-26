@@ -16,9 +16,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-      - name: Setup deployment SA context
-        run: echo Obtain SA
+      - name: Setup SA performing deployment
+        uses: ./.github/workflows/setup_gke_sa-sample.yml@setup-sa
+        with: 
+          gke-cluster: inputs.gke-cluster
 
       - name: Get deployment strategy
         run: echo Download deployment strategy
@@ -30,6 +31,4 @@ jobs:
         run: echo ...
 
       - name: Finalize
-        run: |
-          echo Register deployment status
-          echo ...
+        uses: ./.github/workflows/finalize_deployment-sample.yml@finalize
