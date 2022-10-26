@@ -1,18 +1,14 @@
 name: Setup GKE deployment SA context
 
 on:
-  # This is reusable workflow - providing full GKE deploy
   workflow_call:
     inputs:
       gke-cluster:
         required: true
         type: string
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "deploy"
   deploy:
-    # Later on this can be done in self-hosted runner
     runs-on: ubuntu-latest
 
     steps:
