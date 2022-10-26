@@ -1,0 +1,14 @@
+name: Finalize deployment
+
+on:
+  workflow_call:
+
+jobs:
+  finalize:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Finalize
+        run: |
+          echo Register deployment status
+          echo ...
