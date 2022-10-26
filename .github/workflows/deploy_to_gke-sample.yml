@@ -16,6 +16,7 @@ jobs:
       gke-cluster: ${{ inputs.gke-cluster }}
       
   deploy:
+    needs: setup
     runs-on: ubuntu-latest
           
     steps:
@@ -23,10 +24,11 @@ jobs:
         run: echo Download deployment strategy
 
       - name: Run deployment
-        run: echo Run strategy (actual deployment, this can be action or workflow)
+        run: echo Run strategy - whatever that is
 
       - name: Run other actions
         run: echo ...
         
   finalize:
+    needs: deploy
     uses: ./.github/workflows/finalize_deployment-sample.yml
