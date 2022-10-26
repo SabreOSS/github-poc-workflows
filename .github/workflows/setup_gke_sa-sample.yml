@@ -14,4 +14,4 @@ jobs:
     steps:
 
       - name: Setup deployment SA context
-        run: echo Obtain SA
+        run: echo Obtain SA for ${{ inputs.gke-cluster }}
