@@ -1,0 +1,7 @@
+name: 'Finalize'
+description: 'Finalize deployment'
+runs:
+  using: "composite"
+  steps:
+    - run: echo Finalizing... 
+      shell: bash

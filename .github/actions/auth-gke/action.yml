@@ -1,0 +1,11 @@
+name: 'Authorize GKE'
+description: 'Authorize into the infrastructure'
+inputs:
+  cluster-name:  
+    description: 'Cluster name'
+    required: true
+runs:
+  using: "composite"
+  steps:
+    - run: echo Authorizing into the SA in the ${{ inputs.cluster-name }} cluster
+      shell: bash
