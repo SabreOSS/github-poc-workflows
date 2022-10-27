@@ -1,4 +1,4 @@
-name: Composite actions use
+name: Composite actions use example
 
 on:
   workflow_dispatch:
@@ -15,6 +15,9 @@ on:
 
 jobs:
   run-deploy:
-    uses: ./.github/actions/deploy-gke.yml
-    with: 
-      cluster-name: ${{ inputs.gke-cluster }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Full deploy
+        uses: ./.github/actions/deploy-gke
+        with: 
+          cluster-name: ${{ inputs.gke-cluster }}
