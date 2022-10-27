@@ -1,0 +1,34 @@
+name: Composite actions 2
+
+on:
+  workflow_dispatch:
+    inputs:
+      gke-cluster:
+        required: true
+        type: string
+  # This is reusable workflow - providing full GKE deploy
+  workflow_call:
+    inputs:
+      gke-cluster:
+        required: true
+        type: string
+
+jobs:
+  run-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Authorize in the cluster
+        uses: ./.github/actions/auth-gke
+        with:
+          cluster-name: ${{ inputs.gke-cluster }}
+          
+      - name: Do actual deployment 1
+        run: echo Step1 ...
+      - name: Do actual deployment 2
+        run: echo Step2 ...
+      - name: Do other steps
+        run: echo ...
+        
+      - name: Finalize deployment
+        uses: ./.github/actions/finalize-deploy
