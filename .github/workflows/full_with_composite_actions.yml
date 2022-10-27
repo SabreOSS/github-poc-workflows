@@ -1,0 +1,20 @@
+name: Full GKE deploy workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      gke-cluster:
+        required: true
+        type: string
+  # This is reusable workflow - providing full GKE deploy
+  workflow_call:
+    inputs:
+      gke-cluster:
+        required: true
+        type: string
+
+jobs:
+  run-deploy:
+    uses: ./.github/actions/deploy-gke.yml
+    with: 
+      cluster-name: ${{ inputs.gke-cluster }}
