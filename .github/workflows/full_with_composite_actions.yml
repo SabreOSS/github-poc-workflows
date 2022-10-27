@@ -1,4 +1,4 @@
-name: Full GKE deploy workflow
+name: Composite actions use
 
 on:
   workflow_dispatch:
